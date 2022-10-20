@@ -12,11 +12,12 @@
 
 }*/
 
-
+// 위 buildscript 개선사항 buildsctipt를 사용하지 않고 plugins에 선언 gradle4.3부터 변경
+// 변경이유는 https://docs.gradle.org/current/userguide/plugins.html 에서 나옴
 plugins {
     id 'java'
     id 'eclipse'
-    id 'org.springframework.boot' version '2.7.1'   // 위 buildscript 개선사항
+    id 'org.springframework.boot' version '2.7.1'   
     id 'io.spring.dependency-management' version '1.0.14.RELEASE'    // 스프링부트 의존성을 관리하는 필수 플러그인
 }
 
@@ -32,6 +33,8 @@ repositories {  // 어떤 원격 저장소를 사용할지
 //gradle 3.0 부터는 compile을 권장하지 않음 compile 대신 api로 변경 하지만 쓰지 말 것
 dependencies {  // 개발에 필요한 의존성 선언부
     implementation('org.springframework.boot:spring-boot-starter-web')     // 버전 명시를 하지 않아야 위에 버전을 따라감
+    compileOnly("org.projectlombok:lombok")
+    annotationProcessor("org.projectlombok:lombok")
     testImplementation('org.springframework.boot:spring-boot-starter-test')
 }
 
