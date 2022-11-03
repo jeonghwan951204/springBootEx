@@ -21,5 +21,6 @@ import static org.assertj.core.api.Assertions.assertThat;
         // assertj와 Junit의 비교적 장점   추가적인 라이브러리 필요x, 자동완성이 잘 됨
         assertThat(dto.getName()).isEqualTo(name);
         assertThat(dto.getAmount()).isEqualTo(amount);
+
     }
 }
