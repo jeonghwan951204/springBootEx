@@ -3,11 +3,15 @@ package org.example.web.service.posts;
 import lombok.RequiredArgsConstructor;
 import org.example.web.domain.posts.Posts;
 import org.example.web.domain.posts.PostsRepository;
+import org.example.web.dto.PostsListResponseDto;
 import org.example.web.dto.PostsResponseDto;
 import org.example.web.dto.PostsSaveRequestDto;
 import org.example.web.dto.PostsUpdateRequestDto;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 /*
 * service 에서는 트랜잭션과 도메인 간의 순서만 보장
@@ -38,5 +42,21 @@ public class PostsService {
                 .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id= " + id));
 
         return new PostsResponseDto(entity);
+    }
+
+    @Transactional(readOnly = true)
+    public List<PostsListResponseDto> findAllDesc() {
+        return postsRepository.findAllDesc().stream()
+                .map(PostsListResponseDto::new)
+                .collect(Collectors.toList());
+    }
+
+    @Transactional
+    public void delete(Long id) {
+        // id를 이용해 엔티티를 찾고 delete에 엔티티를 넣어서 삭제
+        Posts posts = postsRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id= " + id));
+
+        postsRepository.delete(posts);
     }
 }
