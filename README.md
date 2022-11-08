@@ -26,3 +26,22 @@
 - 머스테치가 스프링부트 2.7.x 버전에서 한글이 깨지는 이슈가 있어 2.6.7버전으로 다운
 - jquery, bootstrap cdn 주소를 현행화
 - devtools 라이브러리 추가(머스테치는 지원x)
+
+---
+
+### 5장 스프링 시큐리티와 OAuth 2.0으로 로그인 기능 구현하기
+- indexController에서 userName을 넘기지만 화면에서 "owner"로 나오는 현상 userName을 환경변수에서 사용하고 있기 때문에
+loginUserName으로 변경하여 해결
+
+
+
+
+
+
+
+
+
+
+
+
+
