@@ -33,6 +33,12 @@
 - indexController에서 userName을 넘기지만 화면에서 "owner"로 나오는 현상 userName을 환경변수에서 사용하고 있기 때문에
 loginUserName으로 변경하여 해결
 
+---
+
+### 6장 AWS 서버 환경 만들기
+- 아마존 리눅스 2 사용
+- java-11-amazon-corretto.x86_64 설치 ec2에서는 자바1.8까지만 yum에서 지원하고 무료로 사용할 수 있는 멀티플랫폼 배포판을 설치
+- hostname 변경 https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/set-hostname.html를 참조
 
 
 
