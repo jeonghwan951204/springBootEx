@@ -46,7 +46,12 @@ loginUserName으로 변경하여 해결
 - mariadb 10.2버전을 지원하지 않아 최신 버전인 10.6버전 사용
 - 초기 연결 후 데이터베이스가 따로 있지 않아서 직접 생성
 
+---
 
+### 8장 EC2 서버에 프로젝트 배포하기
+- 깃 클론 이후 최초 test 시 테스트 실패 에러 내용은 org.springframework.boot.context.config.ConfigDataResourceNotFoundException at ConfigDataResourceNotFoundException
+원인 : application.yml에 소셜 로그인 정보를 가진 oauth.yml이 선언되어있는데 깃허브에는 올라가 있지 않아서 생긴 에러
+해결 : EC2 서버에 직접 oauth.yml 파일을 생성함 테스트는 auth.yml없이 가능해서 내용 없이 생성함
 
 
 
