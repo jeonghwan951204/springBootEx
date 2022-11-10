@@ -40,7 +40,11 @@ loginUserName으로 변경하여 해결
 - java-11-amazon-corretto.x86_64 설치 ec2에서는 자바1.8까지만 yum에서 지원하고 무료로 사용할 수 있는 멀티플랫폼 배포판을 설치
 - hostname 변경 https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/set-hostname.html를 참조
 
+---
 
+### 7장 AWS의 RDS를 이용해 데이터베이스 환경 만들기
+- mariadb 10.2버전을 지원하지 않아 최신 버전인 10.6버전 사용
+- 초기 연결 후 데이터베이스가 따로 있지 않아서 직접 생성
 
 
 
