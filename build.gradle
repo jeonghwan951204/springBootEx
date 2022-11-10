@@ -49,6 +49,6 @@ dependencies {  // 개발에 필요한 의존성 선언부
 test {
     useJUnitPlatform()
 }
-jar {
+tasks.named("jar") {
     enabled = false
 }
