@@ -13,7 +13,7 @@ spring:
   session:
     store-type: jdbc  # 세션저장소를 db로 변경
   config:
-    import: oauth.yml
+    import: classpath:oauth.yml
 
     #Test OAuth test할 때 oauth
   security:
