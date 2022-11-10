@@ -14,7 +14,8 @@ spring:
     store-type: jdbc  # 세션저장소를 db로 변경
   config:
     import:
-      - oauth.yml
+      - optional:oauth.yml
+      - optional:/home/ec2-user/app/oauth.yml
 
     #Test OAuth test할 때 oauth
   security:
