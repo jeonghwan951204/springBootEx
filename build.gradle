@@ -50,5 +50,5 @@ test {
     useJUnitPlatform()
 }
 jar {
-    enabled(false)
+    enabled = false
 }
