@@ -50,8 +50,12 @@ loginUserName으로 변경하여 해결
 
 ### 8장 EC2 서버에 프로젝트 배포하기
 - 깃 클론 이후 최초 test 시 테스트 실패 에러 내용은 org.springframework.boot.context.config.ConfigDataResourceNotFoundException at ConfigDataResourceNotFoundException
-원인 : application.yml에 소셜 로그인 정보를 가진 oauth.yml이 선언되어있는데 깃허브에는 올라가 있지 않아서 생긴 에러
-해결 : EC2 서버에 직접 oauth.yml 파일을 생성함 테스트는 auth.yml없이 가능해서 내용 없이 생성함
+  원인 : application.yml에 소셜 로그인 정보를 가진 oauth.yml이 선언되어있는데 깃허브에는 올라가 있지 않아서 생긴 에러
+  해결 : EC2 서버에서 /resources/oauth.yml 파일을 생성함 테스트는 auth.yml없이 가능해서 내용 없이 생성함
+- Config data resource class path resource [import file] via location 'import file' does not exist 에러 발생 -> oauth.yml 파일을 찾지 못해 발생
+  원인 : 로컬 서버와 ec2 서버의 oauth.yml 경로가 다름, 보안을 위해 깃허브에 올리지 않은 oauth.yml 파일은 외부에 있는데 쉘에서 classpath를 잡아도 읽지 못함
+  해결 : application.yml의 import에서 옵션으로 optional을 줌 있으면 쓰고 없으면 안 쓴다는 의미로 운영서버에서 resources 디렉토리에 없으면 classpath로 선언한 파일을 읽음
+
 
 
 
