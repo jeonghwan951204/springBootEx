@@ -44,6 +44,7 @@ dependencies {  // 개발에 필요한 의존성 선언부
     implementation('org.springframework.boot:spring-boot-starter-oauth2-client')
     implementation('org.springframework.session:spring-session-jdbc')
     implementation('org.springframework.security:spring-security-test')
+    implementation('org.mariadb.jdbc:mariadb-java-client')
 }
 
 test {
