@@ -17,6 +17,8 @@ spring:
       - optional:oauth.yml
       - optional:/home/ec2-user/app/oauth.yml
     #Test OAuth test할 때 oauth
+    activate:
+      on-profile: default
   security:
     oauth2:
       client:
