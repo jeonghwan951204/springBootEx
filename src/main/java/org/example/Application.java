@@ -10,6 +10,6 @@ public class Application {
     public static void main(String[] args) {
         // 스프링부트의 내장 WAS를 사용
         SpringApplication.run(Application.class,args);
-        
+
     }
 }
