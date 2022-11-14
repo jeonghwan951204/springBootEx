@@ -24,3 +24,6 @@ spring:
             scope:
               - profile
               - email
+logging:
+  level:
+    root: debug
