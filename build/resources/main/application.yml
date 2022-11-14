@@ -1,0 +1,32 @@
+spring:
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL57Dialect   # mysql식 쿼리로그찍기 위해 추가 스프링부트 버전에 따라 설정이 다름
+  #h2:
+    #console:
+      #enabled: true
+  #datasource:
+    #hikari:
+      #jdbc-url: jdbc:h2:mem://localhost/~/testdb;MODE=MYSQL   # mysql 모드로 방언설정 시 필요
+  session:
+    store-type: jdbc  # 세션저장소를 db로 변경
+  config:
+    import:
+      - optional:oauth.yml
+      - optional:/home/ec2-user/app/oauth.yml
+      - optional:real-db.yml
+    #Test OAuth test할 때 oauth
+    activate:
+      on-profile: default
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: test
+            client-secret: test
+            scope:
+              - profile
+              - email
