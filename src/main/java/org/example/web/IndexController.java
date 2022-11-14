@@ -53,16 +53,4 @@ public class IndexController {
         return "posts-update";
     }
 
-    @GetMapping("/test/1")
-    public String test() {
-        PostsSaveRequestDto requestDto = PostsSaveRequestDto.builder()
-                .title("test")
-                .content("test")
-                .author("test")
-                .build();
-        postsService.save(requestDto);
-
-        return "index";
-    }
-
 }
