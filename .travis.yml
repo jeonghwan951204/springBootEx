@@ -14,6 +14,21 @@ cache:  # 그레이들을 통해 의존성을 받으면 해당 디렉토리를 �
 # master 브랜치에 푸시되었을 때 수행하는 명령어
 script: "./gradlew clean build"
 
+before_deploy:      ### deploy 명령어가 실행되기 전에 수행  ###
+  - zip -r springboot-webserivce    # codeDeploy는 jar파일을 인식하지 못해 zip파일로 압축, 현재 위치의 모든파일을 압축, 명령어의 마지막 위치는 프로젝트 이름
+  - mkdir -p deploy     # deploy라는 디렉토리를 travis가 실행 중인 위치에서 생성
+  - mv springboot-webservice.zip deploy/springboot-webservice.zip # 파일을 이동시킴
+deploy:   # s3으로 파일 업로드나 codeDeploy로 배포 등 외부 서비스와 연동될 행위 선언
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY #Travis repo에 설정된 값
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: springboot-webservice-travis  # S3 버킷
+    region: ap-northeast-2
+    skip_cleanup: true
+    acl: private  # zip 파일 접근을 private 으로
+    local_dir: deploy   # before_deploy에서 생성한 디렉토리, 해당 위치의 파일들만 s3으로 전송
+    wait-until-deployed: true
+
 # CI 실행 완료 시 메일로 알람
 notifications:
   email:
