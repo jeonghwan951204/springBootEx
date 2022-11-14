@@ -8,8 +8,8 @@ echo "> Build 파일 복사"
 cp $REPOSITORY/zip/*.jar $REPOSITORY/
 echo "> 현재 구동 중인 애플리케이션 pid 확인"
 
-# 실행 중인 프로세스 id를 찾아 종룟
-CURRENT_PID=$(pgrep -fl springBootEx | grep jar |awk '{print $1}')
+# 실행 중인 프로세스 id를 찾아 종료
+CURRENT_PID=$(pgrep -fl springBootEx | awk '{print $1}')
 
 echo "현재 구동 중인 애플리케이션 pid: $CURRENT_PID"
 
