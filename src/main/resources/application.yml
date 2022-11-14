@@ -16,8 +16,7 @@ spring:
     import:
       - optional:oauth.yml
       - optional:/home/ec2-user/app/oauth.yml
-      - optional:real-db.yml
-    #Test OAuth test할 때 oauth
+      #Test OAuth test할 때 oauth
     activate:
       on-profile: default
   security:
