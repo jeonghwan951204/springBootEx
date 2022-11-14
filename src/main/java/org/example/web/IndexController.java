@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.example.web.config.auth.LoginUser;
 import org.example.web.config.auth.dto.SessionUser;
 import org.example.web.dto.PostsResponseDto;
+import org.example.web.dto.PostsSaveRequestDto;
 import org.example.web.service.posts.PostsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -50,6 +51,18 @@ public class IndexController {
         model.addAttribute("post", dto);
 
         return "posts-update";
+    }
+
+    @GetMapping("/test/1")
+    public String test() {
+        PostsSaveRequestDto requestDto = PostsSaveRequestDto.builder()
+                .title("test")
+                .content("test")
+                .author("test")
+                .build();
+        postsService.save(requestDto);
+
+        return "index";
     }
 
 }
