@@ -31,7 +31,7 @@ deploy:   # s3으로 파일 업로드나 codeDeploy로 배포 등 외부 서비�
 
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY
-    secret_access_key: $$AWS_SECRET_KEY
+    secret_access_key: $AWS_SECRET_KEY
     bucket: springboot-webservice-travis
     key: springBootEx.zip   # 빌드 파일을 압축해서 전달
     application: springboot-codedeploy     #웹 콘솔에서 등록한 codedeploy
