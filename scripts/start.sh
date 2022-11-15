@@ -30,7 +30,6 @@ echo "nohup java -jar \
             $JAR_NAME > $REPOSITORY/nohup.out 2>&1 &"
 
 nohup java -jar \
-      -Dspring.config.location=classpath:application-$IDLE_PROFILE.yml \
-      -Dspring.config.additional-location=file:/home/ec2-user/app/oauth.yml,file:/home/ec2-user/app/real-db.yml \
+      -Dspring.config.location=classpath:application-$IDLE_PROFILE.yml,file:/home/ec2-user/app/oauth.yml,file:/home/ec2-user/app/real-db.yml \
       -Dspring.profiles.active=$IDLE_PROFILE \
       $JAR_NAME > $REPOSITORY/nohup.out 2>&1 &
