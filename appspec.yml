@@ -10,6 +10,7 @@ permissions:    # codedeploy에서 ec2로 넘겨준 파일들을 ec2-user가 권
   - object: /
     pattern: "**"
     owner: ec2-user
+    mode: 665
     group: ec2-user
 
 hooks:      # 배포 단계에서 실행할 명령어 지정
