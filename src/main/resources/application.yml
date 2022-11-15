@@ -13,9 +13,7 @@ spring:
   session:
     store-type: jdbc  # 세션저장소를 db로 변경
   config:
-    import:
-      - oauth.yml
-      - real-db.yml
+    import: classpath:oauth.yml,classpath:real-db.yml
   #Test OAuth test할 때 oauth
   security:
     oauth2:
@@ -29,5 +27,5 @@ spring:
               - email
   profiles:
     group:
-      "real1" : "real1,oauth,real-db"
-      "real2" : "real2,oauth,real-db"
+      "real1" : "real1"
+      "real2" : "real2"
