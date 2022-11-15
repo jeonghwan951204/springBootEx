@@ -3,8 +3,8 @@ server:
 spring:
   config:
     import:
-#      - /home/ec2-user/app/oauth.yml
-#      - /home/ec2-user/app/real-db.yml
+      - /home/ec2-user/app/oauth.yml
+      - /home/ec2-user/app/real-db.yml
     activate:
       on-profile: real1
   jpa:
