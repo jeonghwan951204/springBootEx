@@ -34,7 +34,7 @@ public class ProfileControllerUnitTest {
         String profile = controller.profile();
 
         //then
-        assertThat(profile).isEqualTo(expectedProfile);
+        assertThat(profile).contains(expectedProfile);
     }
 
     @Test
@@ -48,7 +48,7 @@ public class ProfileControllerUnitTest {
         String profile = controller.profile();
 
         //then
-        assertThat(profile).isEqualTo(expectedProfile);
+        assertThat(profile).contains(expectedProfile);
     }
 
 }
