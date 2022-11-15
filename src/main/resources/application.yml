@@ -29,5 +29,5 @@ spring:
   profiles:
     group:
       #default : oauth,real-db
-      real1 : real1
-      real2 : real2
+      real1 : real1,/home/ec2-user/app/oauth.yml,/home/ec2-user/app/real-db.yml
+      real2 : real2,/home/ec2-user/app/oauth.yml,/home/ec2-user/app/real-db.yml

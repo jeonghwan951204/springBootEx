@@ -16,9 +16,6 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class ProfileControllerUnitTest {
 
-    @Autowired
-    DataSource ds;
-
     @Test
     public void real_profile() throws SQLException {
         //given
@@ -28,7 +25,7 @@ public class ProfileControllerUnitTest {
         env.addActiveProfile("oauth");
         env.addActiveProfile("real-db");
 
-        ProfileController controller = new ProfileController(env,ds);
+        ProfileController controller = new ProfileController(env);
 
         //when
         String profile = controller.profile();
@@ -42,7 +39,7 @@ public class ProfileControllerUnitTest {
         // given
         String expectedProfile = "default";
         MockEnvironment env = new MockEnvironment();
-        ProfileController controller = new ProfileController(env,ds);
+        ProfileController controller = new ProfileController(env);
 
         //when
         String profile = controller.profile();
