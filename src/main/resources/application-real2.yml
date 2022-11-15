@@ -1,0 +1,13 @@
+server:
+  port: 8082
+spring:
+  config:
+    import:
+      - optional:/home/ec2-user/app/oauth.yml
+      - optional:/home/ec2-user/app/real-db.yml
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL57Dialect
+  session:
+    store-type: jdbc

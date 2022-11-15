@@ -19,6 +19,10 @@ spring:
     #Test OAuth test할 때 oauth
     activate:
       on-profile: default
+  profiles:
+    group:
+      "real1" : "real1"
+      "real2" : "real2"
   security:
     oauth2:
       client:
