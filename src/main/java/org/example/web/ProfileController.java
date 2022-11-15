@@ -28,6 +28,7 @@ public class ProfileController {
         String defaultProfile = profiles.isEmpty() ? "default" : profiles.get(0);
         String profile = profiles.stream().filter(realProfiles::contains).findAny().orElse(defaultProfile);
         profiles.stream().forEach(sb::append);
+        sb.append(" "+ env.getProperty("spring.datasource.hikari.jdbc-url"));
 
         return profile + " ======== " + sb.toString();
     }
