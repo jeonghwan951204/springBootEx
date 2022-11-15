@@ -5,8 +5,8 @@ spring:
     import:
       - optional:oauth.yml
       - optional:real-db.yml
-      - optional:/home/ec2-user/app/oauth.yml
-      - optional:/home/ec2-user/app/real-db.yml
+      - optional:file:/home/ec2-user/app/oauth.yml
+      - optional:file:/home/ec2-user/app/real-db.yml
     activate:
       on-profile: real2
   jpa:
