@@ -5,9 +5,12 @@ spring:
     import:
       - optional:/home/ec2-user/app/oauth.yml
       - optional:/home/ec2-user/app/real-db.yml
+    activate:
+      on-profile: real2
   jpa:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL57Dialect
+    show-sql: true
   session:
     store-type: jdbc

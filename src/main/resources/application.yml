@@ -13,16 +13,8 @@ spring:
   session:
     store-type: jdbc  # 세션저장소를 db로 변경
   config:
-    import:
-      - optional:oauth.yml
-      - optional:/home/ec2-user/app/oauth.yml
-    #Test OAuth test할 때 oauth
-    activate:
-      on-profile: default
-  profiles:
-    group:
-      "real1" : "real1"
-      "real2" : "real2"
+    import: oauth.yml
+  #Test OAuth test할 때 oauth
   security:
     oauth2:
       client:
@@ -33,3 +25,7 @@ spring:
             scope:
               - profile
               - email
+  profiles:
+    group:
+      real1 : real1
+      real2 : real2
