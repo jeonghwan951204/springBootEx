@@ -4,7 +4,7 @@
 
 function find_idle_profile() {
   # 현재 엔진엔스가 바라보고 있는 스프링 부트가 정상적으로 실행 중인지 체크
-    RESPONSE_CODE=$(curl -s -o /dev/null -w "%{http_code}"http://localhost/profile)
+    RESPONSE_CODE=$(curl -s -o /dev/null -w "%{http_code}" http://localhost/profile)
 
     if [ ${RESPONSE_CODE} -ge 400 ] # 400보다 크면 (즉, 40x/50x 에러 모두 포함)
 
