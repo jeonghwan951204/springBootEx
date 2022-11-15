@@ -15,6 +15,9 @@ spring:
   config:
     import:
       - optional:oauth.yml
+      - optional:real-db.yml
+      - optional:/home/ec2-user/app/oauth.yml
+      - optional:/home/ec2-user/app/real-db.yml
   #Test OAuth test할 때 oauth
   security:
     oauth2:
@@ -29,5 +32,5 @@ spring:
   profiles:
     group:
       #default : oauth,real-db
-      real1 : real1
-      real2 : real2
+      real1 : real1,oauth,real-db
+      real2 : real2,oauth,real-db
