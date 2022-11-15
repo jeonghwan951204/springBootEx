@@ -2,7 +2,12 @@ package org.example.web;
 
 import org.example.web.ProfileController;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mock.env.MockEnvironment;
+
+import javax.sql.DataSource;
+
+import java.sql.SQLException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -11,8 +16,11 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class ProfileControllerUnitTest {
 
+    @Autowired
+    DataSource ds;
+
     @Test
-    public void real_profile() {
+    public void real_profile() throws SQLException {
         //given
         String expectedProfile = "real";
         MockEnvironment env = new MockEnvironment();
@@ -20,7 +28,7 @@ public class ProfileControllerUnitTest {
         env.addActiveProfile("oauth");
         env.addActiveProfile("real-db");
 
-        ProfileController controller = new ProfileController(env);
+        ProfileController controller = new ProfileController(env,ds);
 
         //when
         String profile = controller.profile();
@@ -30,7 +38,7 @@ public class ProfileControllerUnitTest {
     }
 
     @Test
-    public void active_profile이_없으면_default_조회() {
+    public void active_profile이_없으면_default_조회() throws SQLException {
         // given
         String expectedProfile = "default";
         MockEnvironment env = new MockEnvironment();
