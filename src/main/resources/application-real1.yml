@@ -3,8 +3,8 @@ server:
 spring:
   config:
     import:
-      - optional:/home/ec2-user/app/oauth.yml
-      - optional:/home/ec2-user/app/real-db.yml
+      - /home/ec2-user/app/oauth.yml
+      - /home/ec2-user/app/real-db.yml
     activate:
       on-profile: real1
   jpa:
@@ -12,5 +12,4 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL57Dialect
     show-sql: true
-  session:
-    store-type: jdbc
+
