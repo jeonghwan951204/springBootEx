@@ -23,17 +23,8 @@ public class ProfileController {
 
         List<String> realProfiles = Arrays.asList("real", "real1", "real2");
 
-        StringBuilder sb = new StringBuilder();
         String defaultProfile = profiles.isEmpty() ? "default" : profiles.get(0);
-        String profile = profiles.stream().filter(realProfiles::contains).findAny().orElse(defaultProfile);
-        profiles.stream().forEach(sb::append);
-        if(env.getProperty("spring.datasource.hikari.jdbc-url") != null) {
-            sb.append(" "+ env.getProperty("spring.datasource.url"));
-        }
-        if(env.getProperty("spring.security.oauth2") != null) {
-            sb.append(env.getProperty("spring.security.oauth2"));
-        }
 
-        return profile + " ======== " + sb.toString();
+        return profiles.stream().filter(realProfiles::contains).findAny().orElse(defaultProfile);
     }
 }
