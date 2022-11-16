@@ -5,8 +5,10 @@ spring:
     activate:
       on-profile: real2
     import:
-      - /home/ec2-user/app/oauth.yml
-      - /home/ec2-user/app/real-db.yml
+      - optional:oauth.yml
+      - optional:real-db.yml
+      - optional:/home/ec2-user/app/oauth.yml
+      - optional:/home/ec2-user/app/real-db.yml
   jpa:
     properties:
       hibernate:

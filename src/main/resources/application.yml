@@ -12,6 +12,12 @@ spring:
       jdbc-url: jdbc:h2:mem://localhost/~/testdb;MODE=MYSQL   # mysql 모드로 방언설정 시 필요
   session:
     store-type: jdbc  # 세션저장소를 db로 변경
+  config:
+    import:
+      - optional:oauth.yml
+      - optional:real-db.yml
+      - optional:/home/ec2-user/app/oauth.yml
+      - optional:/home/ec2-user/app/real-db.yml
   #Test OAuth test할 때 oauth
   security:
     oauth2:
