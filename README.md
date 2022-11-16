@@ -57,8 +57,12 @@ loginUserName으로 변경하여 해결
   해결 : application.yml의 import에서 옵션으로 optional을 줌 있으면 쓰고 없으면 안 쓴다는 의미로 운영서버에서 resources 디렉토리에 없으면 classpath로 선언한 파일을 읽음  
 - 컴파일 시 '-Dspring.profiles.active'로 프로필을 설정하는데 2.4버전 이전에는 application-[실행명].yml로 파일을 작성해 실행명으로 프로필을 구분하였는데 2.4버전 이후로spring.config.activate.on-propile로 프로필명 설정해서 사용
 
+---
 
-
+### 9장 무중단 배포하기
+ - application-real1,2.yml의 import에서 절대경로를 지정하면 -Dspring.config.location vm옵션을 주지 않아도 된다
+ - application.yml에서 profiles.group으로 실행 프로필 설정
+ - db 설정 파일에서 datasource.url이 아닌 datasource.hikari.jdbc-uri를 사용해야함
 
 
 
