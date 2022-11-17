@@ -1,4 +1,7 @@
 # springBootEx
+- java11, springboot2.6.7,mariadb10.6
+
+---
 
 ## 책과 다른 점
 
